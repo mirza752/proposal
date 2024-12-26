@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Proposal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 4rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .timeline {
+            margin-top: 20px;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateX(-50%);
+        }
+
+        .event {
+            position: relative;
+            margin: 20px 0;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .event:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+
+        .event:nth-child(even) {
+            left: 55%;
+        }
+
+        .event:nth-child(odd) {
+            left: 25%;
+        }
+
+        .message {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .button {
+            background: linear-gradient(to right, #ff758c, #ff4060);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 20px;
+            box-shadow: 0px 4px 10px rgba(255, 64, 96, 0.5);
+        }
+
+        .button:hover {
+            background: linear-gradient(to right, #ff4060, #ff758c);
+            transform: scale(1.1);
+        }
+
+        .floating-text {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: float 6s infinite;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+        }
+
+        .floating-text:nth-child(1) {
+            top: 10%;
+            left: 15%;
+            animation-delay: 0.5s;
+        }
+
+        .floating-text:nth-child(2) {
+            top: 20%;
+            left: 75%;
+            animation-delay: 1.5s;
+        }
+
+        .floating-text:nth-child(3) {
+            top: 70%;
+            left: 40%;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Our Magical Timeline</h1>
+
+        <div class="timeline">
+            <div class="event" onclick="showMessage('The day we met, everything changed! ❤')">
+                We Met
+            </div>
+            <div class="event" onclick="showMessage('Our first trip together was unforgettable! ✨')">
+                First Trip
+            </div>
+            <div class="event" onclick="showMessage('Every moment with you feels magical.')">
+                Special Memory
+            </div>
+            <div class="event" onclick="showMessage('The day I realized you are the one. 💍')">
+                This Moment
+            </div>
+        </div>
+
+        <div id="message" class="message"></div>
+
+        <button class="button" onclick="finalReveal()">Click Me</button>
+    </div>
+
+    
+
+    <script>
+        function showMessage(msg) {
+            const message = document.getElementById('message');
+            message.textContent = msg;
+            message.style.display = 'block';
+        }
+
+        function finalReveal() {
+            const message = document.getElementById('message');
+            message.textContent = "You are my everything. Will you be mine? ❤";
+            message.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
